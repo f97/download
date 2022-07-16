@@ -94,8 +94,8 @@ jobs:
           sudo install -m0644 manjaro-trusted /usr/share/pacman/keyrings/
           cd ..
           
-          sudo git clone https://gitlab.archlinux.org/archlinux/archlinux-keyring.git
-          cd archlinux-keyring
+          wget https://archlinux.org/packages/core/any/archlinux-keyring/download -O /tmp/archlinux-keyring.tar.zst
+          tar --use-compress-program=unzstd --strip-components=4 --wildcards -xvf /tmp/archlinux-keyring.tar.zst usr/share/pacman/keyrings/*
           sudo install -m0644 archlinux.gpg /usr/share/pacman/keyrings/
           sudo install -m0644 archlinux-trusted /usr/share/pacman/keyrings/
           sudo install -m0644 archlinux-revoked /usr/share/pacman/keyrings/
