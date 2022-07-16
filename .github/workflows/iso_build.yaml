@@ -38,7 +38,7 @@ jobs:
       matrix:
         EDITION: [deepin]
         BRANCH: [unstable]
-        SCOPE: [minimal]
+        SCOPE: [minimal,full]
     steps:
       - 
         uses: styfle/cancel-workflow-action@0.8.0
@@ -159,7 +159,7 @@ jobs:
         run: |                
           [ "$SCOPE" == "minimal" ] && unset SCOPE
           
-          KERNEL=linux510
+          KERNEL=linux515
           CODE_NAME="Nightly Build"
           
           sudo sed -i -e 's|dist_name=$(get_distname)|dist_name=Manjaro|g' /usr/lib/manjaro-tools/util.sh
